@@ -21,6 +21,7 @@
         <module>AuthClient</module>
         <module>UserService</module>
         <module>OrderService</module>
+        <module>SpringSecurotyBase</module>
     </modules>
 
     <build>

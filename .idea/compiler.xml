@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="AuthClient" />
         <module name="OrderService" />
+        <module name="SpringSecurotyBase" />
         <module name="UserService" />
       </profile>
     </annotationProcessing>
@@ -17,6 +18,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AuthClient" options="-parameters" />
       <module name="OrderService" options="-parameters" />
+      <module name="SpringSecurotyBase" options="-parameters" />
       <module name="UserService" options="-parameters" />
     </option>
   </component>

@@ -20,10 +20,10 @@ public class SpringUserDetailsService implements UserDetailsService {
     private Map<String, SpringUser> userMap = new HashMap<>();
 
     {
-        SpringUser sz = new SpringUser("zs", "123456", "18665370827", Arrays.asList("ROLE_USER"));
-        SpringUser ls = new SpringUser("ls", "123456", "18665370828", Arrays.asList("ROLE_USER1"));
-        SpringUser ww = new SpringUser("ww", "123456", "18665370829", Arrays.asList("ROLE_USER"));
-        userMap.put("sz", sz);
+        SpringUser zs = new SpringUser("zs","123456" , "18665370827", Arrays.asList("ROLE_USER"));
+        SpringUser ls = new SpringUser("ls","123456", "18665370828", Arrays.asList("ROLE_USER1"));
+        SpringUser ww = new SpringUser("ww","123456", "18665370829", Arrays.asList("ROLE_USER"));
+        userMap.put("zs", zs);
         userMap.put("ls", ls);
         userMap.put("ww", ww);
     }
