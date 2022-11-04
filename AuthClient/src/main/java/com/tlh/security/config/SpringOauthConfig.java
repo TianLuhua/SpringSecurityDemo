@@ -15,9 +15,6 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringOauthConfig {
 
-    @Autowired
-    private RedisConnectionFactory redisConnectionFactory;
-
     /**
      * druid数据源
      *
@@ -53,7 +50,7 @@ public class SpringOauthConfig {
 //     * @return token存储策略
 //     */
 //    @Bean
-//    public TokenStore redisTokenStore() {
+//    public TokenStore redisTokenStore(RedisConnectionFactory redisConnectionFactory) {
 //        return new RedisTokenStore(redisConnectionFactory);
 //    }
 
