@@ -13,7 +13,7 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
 import javax.sql.DataSource;
 
 @Configuration
-public class SpringOauthConfig {
+public class TLHOauthConfig {
 
     /**
      * druid数据源

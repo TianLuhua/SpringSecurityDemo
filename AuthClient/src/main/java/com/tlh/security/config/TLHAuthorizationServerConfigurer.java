@@ -26,7 +26,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @EnableAuthorizationServer
-public class SpringAuthorizationServerConfigurer extends AuthorizationServerConfigurerAdapter {
+public class TLHAuthorizationServerConfigurer extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private AuthenticationManager authenticationManager;

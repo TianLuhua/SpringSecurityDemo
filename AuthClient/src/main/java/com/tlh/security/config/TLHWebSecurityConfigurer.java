@@ -18,7 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * 这个用户名和密码和客户端id和密码是不一样的，客户端ID和密码是应用系统的标识，每个应用系统对应一个客户端id和密码。
  */
 @EnableWebSecurity
-public class SpringWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
+public class TLHWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
 //    @Autowired
 //    private SpringAuthenticationProvider authenticationProvider;
