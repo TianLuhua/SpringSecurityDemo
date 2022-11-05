@@ -7,19 +7,38 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AuthClient" />
-        <module name="OrderService" />
-        <module name="SpringSecurotyBase" />
-        <module name="UserService" />
+        <module name="consumer-api" />
+        <module name="consumer-service" />
+        <module name="oauth-service" />
+        <module name="product-api" />
+        <module name="product-service" />
+        <module name="tlh-base" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AuthClient" target="1.8" />
+      <module name="OrderService" target="1.8" />
+      <module name="service-product" target="1.8" />
+      <module name="SpringSecurotyBase" target="1.8" />
+      <module name="user-service" target="1.5" />
+      <module name="User-Service-Api" target="1.5" />
+      <module name="UserService" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AuthClient" options="-parameters" />
       <module name="OrderService" options="-parameters" />
       <module name="SpringSecurotyBase" options="-parameters" />
+      <module name="User-Service-Api" options="-parameters" />
       <module name="UserService" options="-parameters" />
+      <module name="consumer-api" options="-parameters" />
+      <module name="consumer-service" options="-parameters" />
+      <module name="oauth-service" options="-parameters" />
+      <module name="product-api" options="-parameters" />
+      <module name="product-service" options="-parameters" />
+      <module name="service-product" options="-parameters" />
+      <module name="tlh-base" options="-parameters" />
     </option>
   </component>
 </project>
