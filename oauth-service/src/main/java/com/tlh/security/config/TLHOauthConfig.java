@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import javax.sql.DataSource;
 
@@ -30,6 +32,13 @@ public class TLHOauthConfig {
         };
     }
 
+    @Bean
+    public JwtAccessTokenConverter jwtAccessTokenConverter() {
+        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
+        jwtAccessTokenConverter.setSigningKey("tianluhua");
+        return jwtAccessTokenConverter;
+    }
+
     /**
      * druid数据源
      *
@@ -41,19 +50,19 @@ public class TLHOauthConfig {
         return new DruidDataSource();
     }
 
-    /**
-     * jdbc管理令牌
-     * 步骤：
-     * 1.创建相关表
-     * 2.添加jdbc相关依赖
-     * 3.配置数据源信息
-     *
-     * @return token存储策略
-     */
-    @Bean
-    public TokenStore jdbcTokenStore() {
-        return new JdbcTokenStore(druidDataSource());
-    }
+//    /**
+//     * jdbc管理令牌
+//     * 步骤：
+//     * 1.创建相关表
+//     * 2.添加jdbc相关依赖
+//     * 3.配置数据源信息
+//     *
+//     * @return token存储策略
+//     */
+//    @Bean
+//    public TokenStore jdbcTokenStore() {
+//        return new JdbcTokenStore(druidDataSource());
+//    }
 
 //    /**
 //     * Redis令牌管理
@@ -68,5 +77,16 @@ public class TLHOauthConfig {
 //    public TokenStore redisTokenStore(RedisConnectionFactory redisConnectionFactory) {
 //        return new RedisTokenStore(redisConnectionFactory);
 //    }
+
+
+    /**
+     * Jwt 方式存储toekn
+     *
+     * @return
+     */
+    @Bean
+    public TokenStore jwtTokenStore(JwtAccessTokenConverter jwtAccessTokenConverter) {
+        return new JwtTokenStore(jwtAccessTokenConverter);
+    }
 
 }

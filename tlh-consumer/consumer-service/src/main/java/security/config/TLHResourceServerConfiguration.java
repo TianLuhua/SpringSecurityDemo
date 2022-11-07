@@ -14,6 +14,8 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
 @EnableGlobalMethodSecurity(prePostEnabled = true)//开启方法级权限控制
 public class TLHResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
+    public static final String RESOURCE_ID = "consumer-service";
+
     @Autowired
     public ResourceServerTokenServices tokenServices;
 
@@ -29,7 +31,8 @@ public class TLHResourceServerConfiguration extends ResourceServerConfigurerAdap
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        resources.resourceId("oauth2-resource")
+        //当前资源服务器的资源id。认证服务器会验证客户端有没有访问该资源id的权限
+        resources.resourceId(RESOURCE_ID)
                 .tokenServices(tokenServices);
     }
 

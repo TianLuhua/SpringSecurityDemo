@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.AccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
 import javax.sql.DataSource;
@@ -41,6 +42,9 @@ public class TLHAuthorizationServerConfigurer extends AuthorizationServerConfigu
 
     @Autowired
     private DataSource dataSource;
+
+    @Autowired
+    private AccessTokenConverter accessTokenConverter;
 
 
     /**
@@ -95,7 +99,8 @@ public class TLHAuthorizationServerConfigurer extends AuthorizationServerConfigu
         //刷新令牌获取新令牌时需要
         endpoints.userDetailsService(userDetailsService);
         //令牌管理策略
-        endpoints.tokenStore(tokenStore);
+        endpoints.tokenStore(tokenStore).accessTokenConverter(accessTokenConverter)
+        ;
         //授权码管理策略，针对授权码模式有效，会将授权码放到 auth_code 表，授权后就会删除它
 //        endpoints.authorizationCodeServices(jdbcAuthorizationCodeServices);
     }
