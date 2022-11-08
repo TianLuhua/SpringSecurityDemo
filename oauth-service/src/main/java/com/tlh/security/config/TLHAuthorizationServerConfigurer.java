@@ -98,7 +98,7 @@ public class TLHAuthorizationServerConfigurer extends AuthorizationServerConfigu
         endpoints.authenticationManager(authenticationManager);
         //刷新令牌获取新令牌时需要
         endpoints.userDetailsService(userDetailsService);
-        //令牌管理策略
+        //令牌管理策略:jdbc、redis、jwt
         endpoints.tokenStore(tokenStore).accessTokenConverter(accessTokenConverter)
         ;
         //授权码管理策略，针对授权码模式有效，会将授权码放到 auth_code 表，授权后就会删除它
